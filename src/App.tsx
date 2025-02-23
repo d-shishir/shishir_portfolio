@@ -2,7 +2,7 @@ import { HeroGeometric } from "./components/ui/shape-landing-hero";
 import Footer from "./components/footer";
 import "./index.css";
 import { NavBarO } from "./components/navbar";
-import { Testimonials } from "./components/testimonials";
+import { ProjectList } from "./components/project-list";
 
 function App() {
   return (
@@ -13,8 +13,7 @@ function App() {
         title1="Shishir Lamichhane"
         title2=" Software Engineer"
       />
-
-      {/* <Testimonials /> */}
+      <ProjectList />
       <Footer />
     </>
   );

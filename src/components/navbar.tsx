@@ -5,7 +5,7 @@ export function NavBarO() {
   const navItems = [
     { name: "Home", url: "#home", icon: Home },
     { name: "About", url: "#about", icon: User },
-    { name: "Projects", url: "#", icon: Briefcase },
+    { name: "Projects", url: "#projects", icon: Briefcase },
     { name: "Resume", url: "#", icon: FileText },
     { name: "Testimonial", url: "#testimonial", icon: FileText },
   ];
