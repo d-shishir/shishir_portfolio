@@ -1,6 +1,8 @@
 import { MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import resume from "../../assets/resume.pdf";
+import portrait from "../../assets/portrait.png";
 
 function About() {
   return (
@@ -17,7 +19,7 @@ function About() {
           <div className="w-full max-w-xs sm:max-w-sm lg:max-w-md mx-auto order-0 lg:order-1">
             <div className="rounded-md bg-transparent aspect-square overflow-hidden">
               <img
-                src="src/assets/portrait.png" // Replace with your image URL
+                src={portrait}
                 alt="Shishir Lamichhane"
                 className="w-full h-full object-cover"
               />
@@ -63,10 +65,7 @@ function About() {
                   View My Work <MoveRight className="w-4 h-4" />
                 </Button>
               </a>
-              <a
-                href="/assets/resume.pdf"
-                download="Shishir_Lamichhane_Resume.pdf"
-              >
+              <a href="/assets/resume.pdf" download={resume}>
                 <Button
                   size="lg"
                   className="gap-4 border-gray-600 text-gray-300 hover:border-white hover:text-white"
