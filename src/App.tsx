@@ -3,17 +3,21 @@ import Footer from "./components/footer";
 import "./index.css";
 import { NavBarO } from "./components/navbar";
 import { ProjectList } from "./components/project-list";
+import { About } from "./components/ui/hero-with-image-text-and-two-buttons";
+import Contact from "./components/contact";
 
 function App() {
   return (
     <>
-      <NavBarO />
+      {/* <NavBarO /> */}
       <HeroGeometric
         badge="Hi, I’m"
         title1="Shishir Lamichhane"
         title2=" Software Engineer"
       />
+      <About />
       <ProjectList />
+      <Contact />
       <Footer />
     </>
   );

@@ -19,3 +19,28 @@
     }
   }
 }
+
+.description-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3; /* Show only 3 lines */
+}
+
+.title-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2; /* Ensure title takes up 2 lines */
+  height: 2.8em; /* Adjust based on the font size */
+  word-wrap: break-word;
+}
+
+.inline-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 1; /* Ensure title takes up 2 lines */
+  height: 1.5em; /* Adjust based on the font size */
+  word-wrap: break-word;
+}
