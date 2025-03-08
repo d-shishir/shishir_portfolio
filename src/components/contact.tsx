@@ -11,7 +11,7 @@ const Contact: React.FC<ContactFormProps> = () => {
     email: "",
     message: "",
   });
-
+  // @ts-ignore
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 

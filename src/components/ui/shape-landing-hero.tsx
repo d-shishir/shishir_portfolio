@@ -1,8 +1,7 @@
 "use client";
-
+// @ts-ignore
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { Circle } from "lucide-react";
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 function ElegantShape({

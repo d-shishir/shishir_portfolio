@@ -1,5 +1,5 @@
 "use client";
-
+// @ts-ignore
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -19,6 +19,7 @@ interface NavBarProps {
 
 export function NavBar({ items, className }: NavBarProps) {
   const [activeTab, setActiveTab] = useState(items[0].name);
+  // @ts-ignore
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {

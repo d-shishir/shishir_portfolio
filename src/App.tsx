@@ -1,7 +1,6 @@
 import { HeroGeometric } from "./components/ui/shape-landing-hero";
 import Footer from "./components/footer";
 import "./index.css";
-import { NavBarO } from "./components/navbar";
 import { ProjectList } from "./components/project-list";
 import { About } from "./components/ui/hero-with-image-text-and-two-buttons";
 import Contact from "./components/contact";
