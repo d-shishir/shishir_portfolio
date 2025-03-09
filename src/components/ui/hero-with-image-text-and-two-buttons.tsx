@@ -65,7 +65,7 @@ function About() {
                   View My Work <MoveRight className="w-4 h-4" />
                 </Button>
               </a>
-              <a href="/assets/resume.pdf" download={resume}>
+              <a href="/assets/resume.pdf" download>
                 <Button
                   size="lg"
                   className="gap-4 border-gray-600 text-gray-300 hover:border-white hover:text-white"
