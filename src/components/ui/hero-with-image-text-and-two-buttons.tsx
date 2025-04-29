@@ -1,6 +1,5 @@
 import { MoveRight, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import resume from "../../assets/resume.pdf";
 import portrait from "../../assets/portrait.png";
 
 function About() {
@@ -64,7 +63,7 @@ function About() {
                   View My Work <MoveRight className="w-4 h-4" />
                 </Button>
               </a>
-              <a href={resume} target="_blank" rel="noopener noreferrer">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   className="gap-4 border-gray-600 text-gray-300 hover:border-white hover:text-white"
