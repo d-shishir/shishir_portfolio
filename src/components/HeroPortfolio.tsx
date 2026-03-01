@@ -94,15 +94,20 @@ export function HeroPortfolio() {
       const canvasW = W;
       const canvasH = H;
       
-      const scale = Math.max(canvasW / imgW, canvasH / imgH) * 1.02;
+      const scale = Math.max(canvasW / imgW, canvasH / imgH) * 1.1;
       const sw = imgW * scale;
       const sh = imgH * scale;
 
       const maxSx = (sw - canvasW) / 2;
       const finalSx = (canvasW - sw) / 2 + Math.max(-maxSx, Math.min(maxSx, px));
 
+      // We want to align near the top, but ensure we never leave a gap at the bottom.
+      // Maximum allowed shift up is (sh - canvasH)
       const maxSy = sh - canvasH;
-      let finalSy = -25 + py;
+      let finalSy = -maxSy * 0.1 + py; // start slightly shifted up, allow pan
+      
+      // Clamp it so it doesn't show background on top (finalSy <= 0) 
+      // and doesn't show background on bottom (finalSy >= -maxSy)
       finalSy = Math.min(0, Math.max(-maxSy, finalSy));
 
       targetCtx.drawImage(img, finalSx, finalSy, sw, sh);
@@ -130,20 +135,22 @@ export function HeroPortfolio() {
     ctx.restore();
 
     // Dynamic wipe radius based on screen size (e.g. 15% of width, bounded)
-    const dynamicWipeRadius = Math.max(90, Math.min(220, W * 0.15));
+    const dynamicWipeRadius = Math.max(50, Math.min(130, W * 0.1));
+
+    const isIdle = Date.now() - lastInteractionTime.current > 3000;
+    if (isIdle) {
+      isInteracting.current = false;
+    }
 
     // Update Wipe Trail Logic
-    // Constantly add points if interacting so the brush doesn't disappear when the mouse is still.
-    // Ensure we don't spam 100 identical points in the same frame if not moving much, 
-    // but keep adding slowly to maintain 'life'
-    if (isInteracting.current) {
+    // Only push points if interacting AND not idle
+    if (isInteracting.current && !isIdle) {
       trail.current.push({
         x: spotX.current,
         y: spotY.current,
         life: 1.0,
         radius: dynamicWipeRadius,
       });
-      // Limit length
       if (trail.current.length > MAX_TRAIL_LENGTH) {
         trail.current.shift();
       }
@@ -151,9 +158,13 @@ export function HeroPortfolio() {
 
     // Shrink wipe trail over time
     trail.current.forEach((t) => {
-      t.life -= TRAIL_FADE_SPEED;
+      if (isInteracting.current && !isIdle) {
+        t.life -= TRAIL_FADE_SPEED;
+      } else {
+        t.life -= TRAIL_FADE_SPEED * 8; // Fade out rapidly on exit or idle
+      }
     });
-    // If user stops interacting (mouse leaves), stop adding points, but
+    
     // allow the existing points to fade out naturally
     trail.current = trail.current.filter((t) => t.life > 0);
 

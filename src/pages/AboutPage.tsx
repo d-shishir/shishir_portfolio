@@ -70,10 +70,21 @@ export function AboutPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <h1 className="about-title">
-              <span className="about-title-line">About</span>
-              <span className="about-title-line italic">Me</span>
-            </h1>
+            <div className="about-title-row">
+              <h1 className="about-title">
+                <span className="about-title-line">About</span>
+                <span className="about-title-line italic">Me</span>
+              </h1>
+              <motion.div
+                className="about-portrait-small"
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
+                <img src="/oldhero-1.png" alt="Shishir Lamichhane" className="about-portrait-img" />
+              </motion.div>
+            </div>
+            <div className="about-portrait-caption-new">Shishir Lamichhane · Kathmandu, Nepal</div>
             <div className="about-bio">
               <p>
                 I'm <strong>Shishir Lamichhane</strong> a software engineer based in Kathmandu, Nepal,
@@ -88,7 +99,7 @@ export function AboutPage() {
               <p>
                 Previously a Jr. Software Engineer at{" "}
                 <strong>GivingbackAI</strong> (US, remote), where I handled both software development and
-                technical customer support. Currently freelancing — building cross-platform apps and
+                technical customer support. Currently freelancing building cross-platform apps and
                 architecting backend systems for clients.
               </p>
               <p>
@@ -115,16 +126,6 @@ export function AboutPage() {
                 X / Twitter
               </a>
             </div>
-          </motion.div>
-
-          <motion.div
-            className="about-portrait"
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          >
-            <img src="/oldhero-1.png" alt="Shishir Lamichhane" className="about-portrait-img" />
-            <div className="about-portrait-caption">Shishir Lamichhane · Kathmandu, Nepal</div>
           </motion.div>
         </div>
 
