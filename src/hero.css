@@ -65,7 +65,7 @@ html, body, #root {
 .hero-name-last {
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 500;
-  font-size: clamp(16px, 12vh, 64px);
+  font-size: clamp(32px, 8vh, 64px);
   letter-spacing: -0.02em;
   color: white;
   display: block;

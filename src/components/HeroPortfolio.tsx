@@ -56,8 +56,9 @@ export function HeroPortfolio() {
       return;
     }
 
-    const W = canvas.width;
-    const H = canvas.height;
+    const dpr = window.devicePixelRatio || 1;
+    const W = window.innerWidth;
+    const H = window.innerHeight;
     const img1 = img1Ref.current!;
     const img2 = img2Ref.current!;
 
@@ -65,9 +66,11 @@ export function HeroPortfolio() {
       maskCanvasRef.current = document.createElement("canvas");
     }
     const maskCanvas = maskCanvasRef.current;
-    if (maskCanvas.width !== W || maskCanvas.height !== H) {
-      maskCanvas.width = W;
-      maskCanvas.height = H;
+    if (maskCanvas.width !== W * dpr || maskCanvas.height !== H * dpr) {
+      maskCanvas.width = W * dpr;
+      maskCanvas.height = H * dpr;
+      const mCtx = maskCanvas.getContext("2d");
+      if (mCtx) mCtx.scale(dpr, dpr);
     }
     const maskCtx = maskCanvas.getContext("2d")!;
 
@@ -86,16 +89,19 @@ export function HeroPortfolio() {
     ctx.clearRect(0, 0, W, H);
 
     function drawCover(targetCtx: CanvasRenderingContext2D, img: HTMLImageElement, px: number, py: number) {
-      const zoom = 1.02; // Reduced zoom
-      const scale = Math.max(W / img.naturalWidth, H / img.naturalHeight) * zoom;
-      const sw = img.naturalWidth * scale;
-      const sh = img.naturalHeight * scale;
+      const imgW = img.naturalWidth;
+      const imgH = img.naturalHeight;
+      const canvasW = W;
+      const canvasH = H;
+      
+      const scale = Math.max(canvasW / imgW, canvasH / imgH) * 1.02;
+      const sw = imgW * scale;
+      const sh = imgH * scale;
 
-      const maxSx = (sw - W) / 2;
-      const finalSx = (W - sw) / 2 + Math.max(-maxSx, Math.min(maxSx, px));
+      const maxSx = (sw - canvasW) / 2;
+      const finalSx = (canvasW - sw) / 2 + Math.max(-maxSx, Math.min(maxSx, px));
 
-      const maxSy = sh - H;
-      // Anchor top intentionally but leave a small gap to pan up into
+      const maxSy = sh - canvasH;
       let finalSy = -25 + py;
       finalSy = Math.min(0, Math.max(-maxSy, finalSy));
 
@@ -189,7 +195,7 @@ export function HeroPortfolio() {
       drawCover(maskCtx, img2, -pcX * maxBackgroundPan, -pcY * maxBackgroundPan);
       
       // 4. Draw the fully assembled wipe mask over the main canvas
-      ctx.drawImage(maskCanvas, 0, 0);
+      ctx.drawImage(maskCanvas, 0, 0, W, H);
     }
 
     // Check if wipe overlaps UI elements and toggle invert class
@@ -238,16 +244,26 @@ export function HeroPortfolio() {
     function resize() {
       if (!canvas) return;
       
-      const prevIsPortrait = canvas.height > canvas.width;
-      const currentIsPortrait = window.innerHeight > window.innerWidth;
+      const dpr = window.devicePixelRatio || 1;
+      const displayWidth = window.innerWidth;
+      const displayHeight = window.innerHeight;
+
+      if (canvas.width !== displayWidth * dpr || canvas.height !== displayHeight * dpr) {
+        canvas.width = displayWidth * dpr;
+        canvas.height = displayHeight * dpr;
+        canvas.style.width = `${displayWidth}px`;
+        canvas.style.height = `${displayHeight}px`;
+        
+        const ctx = canvas.getContext("2d");
+        if (ctx) ctx.scale(dpr, dpr);
+      }
       
-      // If we crossed the portrait/landscape boundary, reload images
+      const prevIsPortrait = canvas.height > canvas.width;
+      const currentIsPortrait = displayHeight > displayWidth;
+      
       if (prevIsPortrait !== currentIsPortrait && img1Ref.current) {
          loadImages();
       }
-
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
     }
     resize();
     window.addEventListener("resize", resize);
