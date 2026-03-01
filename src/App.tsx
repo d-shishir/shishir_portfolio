@@ -1,24 +1,20 @@
-import { HeroGeometric } from "./components/ui/shape-landing-hero";
-import Footer from "./components/footer";
 import "./index.css";
-import { ProjectList } from "./components/project-list";
-import { About } from "./components/ui/hero-with-image-text-and-two-buttons";
-import Contact from "./components/contact";
+import { Routes, Route } from "react-router-dom";
+import { HeroPortfolio } from "./components/HeroPortfolio";
+import { ProjectsPage } from "./pages/ProjectsPage";
+import { ContactPage } from "./pages/ContactPage";
+import { AboutPage } from "./pages/AboutPage";
+import { ResumePage } from "./pages/ResumePage";
 
 function App() {
   return (
-    <>
-      {/* <NavBarO /> */}
-      <HeroGeometric
-        badge="Hi, I’m"
-        title1="Shishir Lamichhane"
-        title2=" Software Engineer"
-      />
-      <About />
-      <ProjectList />
-      <Contact />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<HeroPortfolio />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/resume" element={<ResumePage />} />
+      <Route path="/projects" element={<ProjectsPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+    </Routes>
   );
 }
 
