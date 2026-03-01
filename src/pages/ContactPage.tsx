@@ -28,8 +28,9 @@ export function ContactPage() {
       setSubmitSuccess(true);
       form.reset();
       setFormData({ name: "", email: "", message: "" });
-    } catch {
-      alert("Something went wrong. Please try again.");
+    } catch (error: any) {
+      console.error("EmailJS Error:", error);
+      alert("Something went wrong sending the email. Please check the console or verify your EmailJS keys.");
     } finally {
       setIsSubmitting(false);
     }
