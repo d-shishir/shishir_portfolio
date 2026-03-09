@@ -239,8 +239,9 @@ export function HeroPortfolio() {
     const loadImages = () => {
       imagesLoaded.current = 0;
       const isPortrait = window.innerHeight > window.innerWidth;
-      const img1Src = isPortrait ? "/hero-1.png" : "/oldhero-1.png";
-      const img2Src = isPortrait ? "/hero-2.png" : "/oldhero-2.png";
+      const base = import.meta.env.BASE_URL;
+      const img1Src = isPortrait ? `${base}hero-1.png` : `${base}oldhero-1.png`;
+      const img2Src = isPortrait ? `${base}hero-2.png` : `${base}oldhero-2.png`;
 
       const i1 = new Image();
       const i2 = new Image();
