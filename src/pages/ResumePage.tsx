@@ -139,7 +139,7 @@ export function ResumePage() {
           <div className="resume-identity-right">
             <a href="mailto:dshishir13@gmail.com" className="resume-contact-item">dshishir13@gmail.com</a>
             <a href="tel:+9779822447613" className="resume-contact-item">+977 982 244 7613</a>
-            <a href="https://d-shishir.github.io/shishir_portfolio/" target="_blank" rel="noreferrer" className="resume-contact-item">d-shishir.github.io/shishir_portfolio/</a>
+            <a href="https://d-shishir.github.io/" target="_blank" rel="noreferrer" className="resume-contact-item">d-shishir.github.io</a>
             <a href="https://github.com/d-shishir" target="_blank" rel="noreferrer" className="resume-contact-item">github.com/d-shishir</a>
             <a href="https://www.linkedin.com/in/dshishir13" target="_blank" rel="noreferrer" className="resume-contact-item">linkedin.com/in/dshishir13</a>
             <a href="https://x.com/shishirai_" target="_blank" rel="noreferrer" className="resume-contact-item">x.com/shishirai_</a>

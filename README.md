@@ -4,7 +4,7 @@ Welcome to the repository for my personal portfolio website. This project is des
 
 ## 🚀 Live Demo
 
-[Visit my Portfolio Website](https://d-shishir.github.io/shishir_portfolio/)
+[Visit my Portfolio Website](https://d-shishir.github.io/)
 
 ## ✨ Features
 
@@ -37,8 +37,8 @@ To run this project locally on your machine, follow these steps:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/d-shishir/shishir_portfolio.git
-   cd shishir_portfolio
+   git clone https://github.com/d-shishir/d-shishir.github.io.git
+   cd d-shishir.github.io
    ```
 
 2. **Install dependencies**
