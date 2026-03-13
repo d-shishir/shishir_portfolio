@@ -16,6 +16,14 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: "Nepali Puran",
+    description:
+      "A digital library preserving Nepali religious texts and holy scriptures. Features the complete Shree Swostani Brata Katha and Bhagavad Gita with dark/light mode, smart bookmarks, and 100% offline reading. Privacy-first with no ads or tracking.",
+    techStack: ["React Native", "Expo", "TypeScript"],
+    link: "https://play.google.com/store/apps/details?id=com.nepalipuran.app",
+  },
+  {
+    id: 2,
     title: "Baghchal Royale",
     description:
       "Full-stack digital adaptation of Baghchal — a traditional Nepali board game. Features a Double Q-Learning AI opponent with 15+ dimensional state representation, multiple difficulty levels, and real-time gameplay. React Native frontend with a FastAPI + PostgreSQL backend.",
@@ -23,7 +31,7 @@ const projects: Project[] = [
     link: "https://github.com/d-shishir/Baghchal-Royale",
   },
   {
-    id: 2,
+    id: 3,
     title: "InsightStack",
     description:
       "A modern productivity and analytics web application built with React and Vite. Focuses on clean data visualisation and an intuitive user experience.",
@@ -31,7 +39,7 @@ const projects: Project[] = [
     link: "https://github.com/d-shishir/InsightStack",
   },
   {
-    id: 3,
+    id: 4,
     title: "Finance Sathi",
     description:
       "Personal finance management app to track expenses, income, and savings goals. Designed to give users a clear picture of their financial health at a glance.",
@@ -39,20 +47,12 @@ const projects: Project[] = [
     link: "https://github.com/d-shishir/Finanace-Sathi",
   },
   {
-    id: 4,
+    id: 5,
     title: "Kanban Board",
     description:
       "A production-quality Kanban board with drag-and-drop task management, priority tagging, due dates, search & filtering, and local data persistence.",
     techStack: ["React", "TypeScript", "Vite"],
     link: "https://github.com/d-shishir/Kanban-Board",
-  },
-  {
-    id: 5,
-    title: "Money Mentor",
-    description:
-      "A financial guidance and budgeting companion app helping users set budgets, monitor spending habits, and reach their savings targets.",
-    techStack: ["React Native", "JavaScript"],
-    link: "https://github.com/d-shishir/MoneyMentor",
   },
   {
     id: 6,
